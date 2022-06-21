@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="shortcut icon" href="img/thermo.jpg" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <section id="heading">
+    <h1>TEMPERATURE CONVERTER</h1>
+    </section>
+    <section class="temperature">
+        <h2 class="title">Calculate Temperature</h2>
+        <div class="container">
+            <form action="" method="post" name="form1">
+            <div class="convert-form row">
+                <div class="form-field col-lg-12">
+                    <input id="num1" class="input-text" type="text" name="Number1">
+                    <label for="name" class="label">Value To Convert</label>
+                </div>
+                <div class="form-field col-lg-6">
+                    <select class="form-select bg-transparent" aria-label="Disabled select example" class="input-text">
+                        <option selected>Select From This</option>
+                        <option value="Celcius">Celcius</option>
+                        <option value="Farenheit">Farenheit</option>
+                        <option value="Kelvin">Kelvin</option>
+                      </select>
+                      <label for="select option" class="label">From:</label>
+                </div>
+                <div class="form-field col-lg-6">
+                    <select class="form-select bg-transparent" aria-label="Disabled select example">
+                        <option selected>Select From This</option>
+                        <option value="Celcius" >Celcius</option>
+                        <option value="Farenheit">Farenheit</option>
+                        <option value="Kelvin">Kelvin</option>
+                      </select>
+                      <label for="select option" class="label">To:</label>
+                </div>
+                <div class="form-field col-lg-6">
+                    <input id="output" class="input-text" type="text" name="">
+                    <label for="output" class="label">Result</label>
+                </div>
+                <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                    <div class="btn-group ms-2" role="group" aria-label="First group">
+                        <button class="btn btn-primary" type="button" onclick="convert()">Convert</button>
+                    </div>
+                    <div class="btn-group ms-2" role="group" aria-label="Second group">
+                        <button class="btn btn-primary" type="reset" onclick="convert">Reset</button>
+                      </div>
+                    </div>
+            </div>
+        </form>
+        </div>
+    </section>
+    <script>
+        function convert(){
+            var value1=document.getElementsByTagName("input")[0].value;
+            var result=document.getElementsByTagName("input")[1];
+            var select1=document.getElementsByTagName("select")[0].value;
+            var select2=document.getElementsByTagName("select")[1].value;
+                if(select1=="Celcius" && select2=="Farenheit"){
+                    var con1=(value1*1.8)+32;
+                    result.value=con1;
+                }
+                if(select1=="Celcius" && select2=="Kelvin"){
+                    var con2=(value1*1)+273.15;
+                    result.value=con2;
+                }
+                else if(select1=="Farenheit" && select2=="Celcius"){
+                    var con3=(value1-32)*0.5555555555555556;
+                    result.value=con3;
+                }
+                else if(select1=="Farenheit" && select2=="Kelvin"){
+                    var con4=((value1-32)*0.5555555555555556)+273.15;
+                    result.value=con4;
+                }
+                else if(select1=="Kelvin" && select2=="Celcius"){
+                    var con5=(value1*1)-273.15;
+                    result.value=con5;
+                }
+                else if(select1=="Kelvin" && select2=="Farenheit"){
+                    var con6=((value1-273.15)*1.8)+32;
+                    result.value=con6;
+                }
+                else if(select1==select2){
+                    alert("Please Select Right Option");
+                }
+        }
+    </script>
+</body>
+</html>
